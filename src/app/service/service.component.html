@@ -1,0 +1,49 @@
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+               
+                <th scope="col">Colour</th>
+                <th scope="col">Name</th>
+                <th scope="col">score_out_of_10</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr
+                *ngFor="let a of recivedApi.categories | paginate: { itemsPerPage: 5, currentPage: p, totalItems: total}">
+                <th scope="row">{{a.color}}</th>
+                <td>{{a.name}}</td>
+                <td>{{a['score_out_of_10']}}</td>
+                <!-- <td *ngFor="let b of recivedApi.">{{b.name}}</td> -->
+
+            </tr>
+        </tbody>
+    </table>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>
+<hr>
+<br>
+<h1 style="background-color: beige; text-align: center;" >another portion of api</h1>
+<hr>
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Flink</th>
+                <th scope="col">Name</th>
+                <th scope="col">Templated</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let c of recivedApi2.curies">
+                <th scope="row">{{c.href}}</th>
+                <td>{{c.name}}</td>
+                <td>{{c.templated}}</td>
+                
+            </tr>
+        </tbody>
+    </table>
+
+</div>
